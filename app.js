@@ -37,7 +37,7 @@ app.use(cors({
     'http://localhost:3000',
     process.env.CLIENT_URL,
     'https://school-fe-liard.vercel.app',
-    'https://school-fe-sable.vercel.app/'
+    'https://school-fe-sable.vercel.app'
   ].filter(Boolean),
   credentials: true,
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
