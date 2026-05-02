@@ -26,9 +26,14 @@ const admissionSchema = new mongoose.Schema(
     },
 
     // Parent Info
-    parentName: {
+    fatherName: {
       type: String,
-      required: [true, 'Parent name is required'],
+      required: [true, 'Father name is required'],
+      trim: true,
+    },
+    motherName: {
+      type: String,
+      required: [true, 'Mother name is required'],
       trim: true,
     },
     contactNumber: {
