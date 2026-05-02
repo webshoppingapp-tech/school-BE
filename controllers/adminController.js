@@ -51,7 +51,8 @@ const getApplications = async (req, res) => {
     if (search) {
       query.$or = [
         { studentName: { $regex: search, $options: 'i' } },
-        { parentName: { $regex: search, $options: 'i' } },
+        { fatherName: { $regex: search, $options: 'i' } },
+        { motherName: { $regex: search, $options: 'i' } },
         { contactNumber: { $regex: search, $options: 'i' } },
       ];
     }

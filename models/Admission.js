@@ -87,6 +87,6 @@ const admissionSchema = new mongoose.Schema(
 // Index for faster queries
 admissionSchema.index({ status: 1, createdAt: -1 });
 admissionSchema.index({ contactNumber: 1 });
-admissionSchema.index({ studentName: 'text', parentName: 'text' });
+admissionSchema.index({ studentName: 'text', fatherName: 'text', motherName: 'text' });
 
 module.exports = mongoose.model('Admission', admissionSchema);

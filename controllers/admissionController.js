@@ -6,7 +6,14 @@ const Admission = require('../models/Admission');
 const submitAdmission = async (req, res) => {
   try {
     const {
-      admissionClass, studentName, parentName, address, contactNumber,
+      admissionClass,
+      studentName,
+      fatherName,
+      motherName,
+      // Backward-compat: some older clients used a single `parentName` field
+      parentName,
+      address,
+      contactNumber,
       bloodGroup, aadhaarNumber, fatherOccupation, fatherIncome,
       motherOccupation, motherIncome, caste, religion,
     } = req.body;
@@ -33,7 +40,12 @@ const submitAdmission = async (req, res) => {
     }
 
     const admission = await Admission.create({
-      admissionClass, studentName, parentName, address, contactNumber,
+      admissionClass,
+      studentName,
+      fatherName: fatherName || parentName,
+      motherName: motherName || parentName,
+      address,
+      contactNumber,
       bloodGroup: bloodGroup || '',
       aadhaarNumber: aadhaarNumber || '',
       fatherOccupation: fatherOccupation || '',
